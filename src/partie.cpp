@@ -12,7 +12,7 @@
 
 #include <cassert>
 
-#include <sys/time.h>
+#include <chrono>
 
 #include "card.h"
 
@@ -130,12 +130,8 @@ void game::distribution()
   generate(newCardStack.begin(),newCardStack.end(),cardGenerator());
   for_each(newCardStack.begin(),newCardStack.end(),printCardHEX);
 
-  struct timeval tv;
-  struct timezone tz;
-
-  gettimeofday(&tv, &tz);
-  srand(tv.tv_usec);
-  cout << "timeval = " << tv.tv_usec << endl;
+  auto start = chrono::steady_clock::now();
+  srand(chrono::duration_cast<chrono::milliseconds>(start.time_since_epoch()).count());
 
   random_shuffle(newCardStack.begin(), newCardStack.end());
   
