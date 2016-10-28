@@ -10,3 +10,4 @@ The parameter accepted by the program is the number of simulated players.
 ## Build status
 
 - Travis CI: [![Build Status](https://travis-ci.org/prisme60/bataille.svg?branch=master)](https://travis-ci.org/prisme60/bataille)
+- AppVeyor : [![Build status](https://ci.appveyor.com/api/projects/status/ci73r7p5s4hisgs1?svg=true)](https://ci.appveyor.com/project/prisme60/bataille)
