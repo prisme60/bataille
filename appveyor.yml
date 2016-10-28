@@ -33,4 +33,4 @@ after_build:
 
 artifacts:
   - path: bataille.zip
-  name: bataille.zip
+  - name: bataille.zip
