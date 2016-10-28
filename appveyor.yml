@@ -16,7 +16,7 @@ environment:
 before_build:
   - echo Running cmake in %BASE% ...
   - cd %BASE%
-  - cmake -verbose -G "Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=%P%
+  - cmake -G "Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=%P%
   - cd %P%
   - dir
 
@@ -24,7 +24,7 @@ platform: x64
 configuration: Release
 
 build:
-  project: INSTALL.vcxproj
+  project: bataille.vcxproj
   verbosity: detailed
 
 after_build:
