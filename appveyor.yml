@@ -1,5 +1,12 @@
 version: 1.0.{build}
 
+# Operating system (build VM template)
+os: Visual Studio 2015
+
+# scripts that are called at very beginning, before repo cloning
+init:
+ - git config --global core.autocrlf input
+
 clone_folder: c:\projects\bataille
 
 environment:
@@ -7,16 +14,23 @@ environment:
   BASE: c:\projects\bataille
 
 before_build:
-- cmd: >-
-    echo Running cmake in %BASE% ...
-    cd %BASE%
-    cmake -G "Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=%P%
+  - echo Running cmake in %BASE% ...
+  - cd %BASE%
+  - cmake -G "Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=%P%
+  - dir %P%
+
+platform: x64
+configuration: Release
 
 build:
+  project: INSTALL.vcxproj
   verbosity: detailed
 
 after_build:
-- cmd: >-
-    cd %P%
-    7z a %BASE%\bataille.zip * -tzip
-    cd %BASE%
+  - cd %P%
+  - 7z a %BASE%\bataille.zip * -tzip
+  - cd %BASE%
+
+artifacts:
+  - path: bataille.zip
+  name: bataille.zip
