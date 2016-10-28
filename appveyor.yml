@@ -16,9 +16,9 @@ environment:
 before_build:
   - echo Running cmake in %BASE% ...
   - cd %BASE%
+  - mkdir %P%
   - cmake -G "Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=%P%
-  - cd %P%
-  - dir
+  - dir %P%
 
 platform: x64
 configuration: Release
