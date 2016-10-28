@@ -25,11 +25,11 @@ configuration: Release
 
 build:
   project: bataille.vcxproj
-  verbosity: detailed
+  verbosity: minimal
 
 after_build:
   - cd %P%
-  - 7z a %BASE%\bataille.zip * -tzip
+  - 7z a %BASE%\bataille.zip * src/* -tzip
   - cd %BASE%
 
 artifacts:
