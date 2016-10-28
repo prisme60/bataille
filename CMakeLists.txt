@@ -6,7 +6,7 @@ SET(CMAKE_VERBOSE_MAKEFILE ON)
 
 #add definitions, compiler switches, etc.
 #ADD_DEFINITIONS(-Wall -O0 -g) #debug
-ADD_DEFINITIONS(-Wall -O3 -Wall) #release
+ADD_DEFINITIONS(-Wall -O3 -Wall -std=c++0x) #release
 #ADD_DEFINITIONS(-g -DNDEBUG -Wall -O0 -ffast-math -march=athlon-tbird -mtune=athlon-tbird -mfpmath=sse -msse -mmmx)
 #ADD_DEFINITIONS(-Wall -O3 -ffast-math -march=athlon-tbird -mtune=athlon-tbird -mfpmath=sse -msse)
 #ADD_DEFINITIONS(-Wall -O3 -ffast-math -march=athlon-tbird -mtune=athlon-tbird -mfpmath=sse -msse -g)
