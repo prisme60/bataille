@@ -1,0 +1,22 @@
+version: 1.0.{build}
+
+clone_folder: c:\projects\bataille
+
+environment:
+  P: c:\projects\bin
+  BASE: c:\projects\bataille
+
+before_build:
+- cmd: >-
+    echo Running cmake in %BASE% ...
+    cd %BASE%
+    cmake -G "Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=%P%
+
+build:
+  verbosity: detailed
+
+after_build:
+- cmd: >-
+    cd %P%
+    7z a %BASE%\bataille.zip * -tzip
+    cd %BASE%
